@@ -9,7 +9,7 @@
     </UserControl.Resources>
 
     <Canvas>
-        <Rectangle x:Name="Arm" Width="200" Height="20" Fill="{Binding RobotHasWafer, Converter={StaticResource WaferColorConverter}}" RenderTransformOrigin="0,0.5">
+        <Rectangle x:Name="Arm" Width="200" Height="20" Fill="{Binding RobotHasWafer, Converter={StaticResource WaferColorConverter}}" RenderTransformOrigin="0,0.5" Canvas.Left="75" Canvas.Top="90">
             <Rectangle.RenderTransform>
                 <RotateTransform x:Name="ArmRotate" Angle="{Binding RotationAngle}"/>
             </Rectangle.RenderTransform>

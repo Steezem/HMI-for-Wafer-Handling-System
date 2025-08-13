@@ -11,9 +11,7 @@ using System.Windows.Shapes;
 
 namespace HMI_for_Wafer_Handling_System
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
         public MainWindow()

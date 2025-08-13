@@ -34,11 +34,10 @@ namespace HMI_for_Wafer_Handling_System
             var slotTo = LP2.Slots.LastOrDefault(s => !s.Is_filled);
             if (slotFrom == null || slotTo == null) return;
 
-            await Robot.MoveRobotAsync(0, 180, true);   // zu LP1
+            await Robot.MoveRobotAsync(-180, 0);   
             slotFrom.Is_filled = false;
-            //await Robot.MoveRobotAsync(180, 1, true); // zu LP2
             slotTo.Is_filled = true;
-            //await Robot.MoveRobotAsync(300, 0, false);  // zurück
+            //await Robot.MoveRobotAsync(180, 0, false);
         }
 
 	}

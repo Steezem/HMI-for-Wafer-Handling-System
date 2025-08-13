@@ -31,16 +31,17 @@ namespace HMI_for_Wafer_Handling_System
             }
         }
 
-        public async Task MoveRobotAsync(double from, double to, bool pickUp) {
+        public async Task MoveRobotAsync(int from, int to) {
             IsMoving = true;
             RobotHasWafer = true;
-            for (int i = 180; i >= 0; i -= 5) {
+            for (int i = from; i <= to; i += 5) {
                 RotationAngle = i; 
                 await Task.Delay(10); 
             }
 
-            RobotHasWafer = false; 
             IsMoving = false;
+            RobotHasWafer = false; 
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
