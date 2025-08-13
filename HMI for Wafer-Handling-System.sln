@@ -19,9 +19,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModels", "ViewModels", 
 		LoadPortViewModel.cs = LoadPortViewModel.cs
 		MainViewModel.cs = MainViewModel.cs
 		RobotViewModel.cs = RobotViewModel.cs
+		TransferCommand.cs = TransferCommand.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{85B850C9-C49D-4307-864F-7B0372F8B3A2}"
+	ProjectSection(SolutionItems) = preProject
+		LoadPortControl.xaml = LoadPortControl.xaml
+		LoadPortControl.xaml.cs = LoadPortControl.xaml.cs
+		MainWindow.xaml = MainWindow.xaml
+		MainWindow.xaml.cs = MainWindow.xaml.cs
+		WaferColorConverter.cs = WaferColorConverter.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

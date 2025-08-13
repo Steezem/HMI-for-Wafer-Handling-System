@@ -4,9 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HMI_for_Wafer_Handling_System"
+        xmlns:uc="clr-namespace:HMI_for_Wafer_Handling_System.Views.UserControls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
 
+        <uc:LoadPortControl Grid.Column="0" DataContext="{Binding LP1}" Margin="25,17,25,17" Width="150" Height="400"/>
+
+        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Robot" FontSize="20" HorizontalAlignment="Center"/>
+            <TextBlock Text="Has Wafer:"/>
+            <TextBlock Text="{Binding RobotViewModel.carries_Wafer}"/>
+        </StackPanel>
+
+        <uc:LoadPortControl Grid.Column="2" DataContext="{Binding LP2}" Margin="25,17,25,17" Width="150" Height="400"/>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,20" Grid.ColumnSpan="3">
+            <Button Content="Start" Command="{Binding StartCommand}" Width="100" Margin="10"/>
+            <Button Content="Pause" Command="{Binding PauseCommand}" Width="100" Margin="10"/>
+        </StackPanel>
     </Grid>
 </Window>

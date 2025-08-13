@@ -4,6 +4,5 @@
              xmlns:local="clr-namespace:HMI_for_Wafer_Handling_System"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
     </Application.Resources>
 </Application>

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.ObjectModel;
 
-namespace HMI_for_Wafer_Handling_System.ViewModels
+namespace HMI_for_Wafer_Handling_System
 {
 public class LoadPortViewModel : BaseViewModel
     {

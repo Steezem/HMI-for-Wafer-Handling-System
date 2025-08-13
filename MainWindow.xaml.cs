@@ -19,6 +19,7 @@ namespace HMI_for_Wafer_Handling_System
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
         }
     }
 }
