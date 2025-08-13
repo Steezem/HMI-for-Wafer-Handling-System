@@ -5,6 +5,24 @@ VisualStudioVersion = 17.14.36401.2 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMI for Wafer-Handling-System", "HMI for Wafer-Handling-System.csproj", "{B7984C1F-CF5F-4F2C-AD6D-B140A27EA897}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		LoadPort.cs = LoadPort.cs
+		RobotArm.cs = RobotArm.cs
+		Slot.cs = Slot.cs
+		Wafer.cs = Wafer.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModels", "ViewModels", "{14175480-ADB5-405F-BC8D-DC30252B801E}"
+	ProjectSection(SolutionItems) = preProject
+		BaseViewModel.cs = BaseViewModel.cs
+		LoadPortViewModel.cs = LoadPortViewModel.cs
+		MainViewModel.cs = MainViewModel.cs
+		RobotViewModel.cs = RobotViewModel.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{85B850C9-C49D-4307-864F-7B0372F8B3A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
