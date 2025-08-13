@@ -1,56 +1,45 @@
-﻿using System;
+﻿using HMI_for_Wafer_Handling_System.Models;
+using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using System.Windows.Threading;
-using HMI_for_Wafer_Handling_System.Models;
 
 namespace HMI_for_Wafer_Handling_System
 {
 
-	public class MainViewModel : BaseViewModel
-	{
+	public class MainViewModel : INotifyPropertyChanged
+    {
 		public LoadPortViewModel LP1 { get; set; }
 		public LoadPortViewModel LP2 { get; set; }
 		public RobotViewModel Robot { get; set; }
 
-		private DispatcherTimer timer;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-		public ICommand StartCommand { get; }
+        public ICommand StartCommand { get; }
 		public ICommand PauseCommand { get; }
 
 		public MainViewModel() {
 			LP1 = new LoadPortViewModel(name: "LP1", filled: true);
 			LP2 = new LoadPortViewModel(name: "LP2", filled: false);
-			Robot = new RobotViewModel(position: "LP1", carries_Wafer: false);
+			Robot = new RobotViewModel();
 
-			StartCommand = new TransferCommand(_ => timer.Start());
-			PauseCommand = new TransferCommand(_ => timer.Stop());
+            StartCommand = new TransferCommand(async () => await StartTransferAsync(), () => !Robot.IsMoving);
+            PauseCommand = new TransferCommand(() => Robot.IsMoving = false, () => Robot.IsMoving);
+        }
 
-			timer = new DispatcherTimer();
-			timer.Interval = TimeSpan.FromSeconds(1);
-			timer.Tick += Timer_Tick;
-		}
+        private async Task StartTransferAsync() {
+            var slotFrom = LP1.Slots.LastOrDefault(s => s.Is_filled);
+            var slotTo = LP2.Slots.LastOrDefault(s => !s.Is_filled);
+            if (slotFrom == null || slotTo == null) return;
 
-		private void Timer_Tick(object sender, EventArgs e) {
+            await Robot.MoveRobotAsync(0, 180, true);   // zu LP1
+            slotFrom.Is_filled = false;
+            //await Robot.MoveRobotAsync(180, 1, true); // zu LP2
+            slotTo.Is_filled = true;
+            //await Robot.MoveRobotAsync(300, 0, false);  // zurück
+        }
 
-			if (!Robot.carries_Wafer) {
-
-				var waferSlot = LP1.Slots.FirstOrDefault(s => s.Is_filled);
-				if (waferSlot != null) {
-					Robot.carries_Wafer = true;
-					Robot.position = "LP2";
-				}
-			} else {
-				var emptySlot = LP2.Slots.FirstOrDefault(s => !s.Is_filled);
-				if (emptySlot != null) {
-					Robot.carries_Wafer = false;
-					Robot.position = "LP1";
-				}
-			}
-			OnPropertyChanged(nameof(Robot));
-			OnPropertyChanged(nameof(LP1));
-			OnPropertyChanged(nameof(LP2));
-		}
 	}
 }

@@ -1,10 +1,11 @@
 ﻿using HMI_for_Wafer_Handling_System.Models;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace HMI_for_Wafer_Handling_System
 {
-public class LoadPortViewModel : BaseViewModel
+public class LoadPortViewModel : INotifyPropertyChanged
     {
 		public string Name { get; set; }
 		public ObservableCollection<Slot> Slots { get; set; } = new ObservableCollection<Slot>();
@@ -16,5 +17,7 @@ public class LoadPortViewModel : BaseViewModel
 				Slots.Add(new Slot(number: i, is_filled: filled));
 				};
 			}
-	}
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+    }
 }

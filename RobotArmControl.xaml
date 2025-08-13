@@ -1,0 +1,18 @@
+<UserControl x:Class="HMI_for_Wafer_Handling_System.Views.UserControls.RobotArmControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HMI_for_Wafer_Handling_System.Views"
+             Height="100" Width="400">
+
+    <UserControl.Resources>
+        <local:WaferColorConverter x:Key="WaferColorConverter"/>
+    </UserControl.Resources>
+
+    <Canvas>
+        <Rectangle x:Name="Arm" Width="200" Height="20" Fill="{Binding RobotHasWafer, Converter={StaticResource WaferColorConverter}}" RenderTransformOrigin="0,0.5">
+            <Rectangle.RenderTransform>
+                <RotateTransform x:Name="ArmRotate" Angle="{Binding RotationAngle}"/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+    </Canvas>
+</UserControl>
