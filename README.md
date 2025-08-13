@@ -1,5 +1,5 @@
 # Models
-Es werden Models für die LoadPorts und die einzelnen Slots benutzt. Die LoadPorts stellen eine Liste aus 25 Slots dar und die Slots zeigen durch den bool "__is__Filled" an, ob ein Wafer in dem Slot liegt oder nicht.
+Es wird nur ein Model für die Slots benutzt. Ein Slot zeigt durch den bool "__is__Filled" an, ob ein Wafer in dem Slot liegt oder nicht.
 
 # ViewModels
 Das MainViewModel ist dafür zuständig die Load Port 1, 2 und den Roboter Arm zu initiieren. Beim Start des Programms wird LP1 mit Wafern gefüllt und LP2 leer gelassen. Beim drücken auf den Start Button wird der Arm bewegt und alle Wafer werden nacheinander von LP1 zu LP2 gebracht.

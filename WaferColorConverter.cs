@@ -13,6 +13,6 @@ public class WaferColorConverter : IValueConverter
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        //not necessary since only transfer from LP1 to LP2 is done
+        //not necessary since both colorings are done in Convert()
         => throw new NotImplementedException();
 }
