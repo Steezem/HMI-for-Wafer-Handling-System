@@ -36,12 +36,16 @@ namespace HMI_for_Wafer_Handling_System
             RobotHasWafer = true;
             for (int i = from; i <= to; i += 5) {
                 RotationAngle = i; 
-                await Task.Delay(10); 
+                await Task.Delay(15); 
             }
 
-            IsMoving = false;
             RobotHasWafer = false; 
 
+            for (int i = to; i >= from; i -= 5) {
+                RotationAngle = i; 
+                await Task.Delay(15); 
+            }
+            IsMoving = false;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
