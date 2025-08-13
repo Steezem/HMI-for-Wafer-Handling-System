@@ -13,11 +13,8 @@ public class LoadPortViewModel : BaseViewModel
 	{
 			Name = name;
 			for (int i = 0; i < 25; i++) {
-				Slots.Add(new Slot {
-					number = i,
-					Wafer = new Wafer { Present = filled }
-				});
+				Slots.Add(new Slot(number: i, is_filled: filled));
+				};
 			}
 	}
-}
 }

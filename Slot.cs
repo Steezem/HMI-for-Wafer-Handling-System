@@ -20,10 +20,14 @@ namespace HMI_for_Wafer_Handling_System.Models
 			}
 		}
 		public int number { get; set; }
-		public Wafer Wafer { get; set; }
+
+		public Slot(int number, bool is_filled) {
+			this.number = number;
+			Is_filled = is_filled;
+		}
 
 		protected void OnPropertyChanged(string propertyName) {
-			PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }

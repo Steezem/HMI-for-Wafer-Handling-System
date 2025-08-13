@@ -19,7 +19,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Rectangle Width="40" Height="10" Stroke="Black" Margin="2"
-                               Fill="{Binding IsOccupied, Converter={StaticResource WaferColorConverter}}"/>
+                               Fill="{Binding Is_filled, Converter={StaticResource WaferColorConverter}}"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

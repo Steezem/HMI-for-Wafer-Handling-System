@@ -36,16 +36,14 @@ namespace HMI_for_Wafer_Handling_System
 
 			if (!Robot.carries_Wafer) {
 
-				var waferSlot = LP1.Slots.FirstOrDefault(s => s.Wafer.Present);
+				var waferSlot = LP1.Slots.FirstOrDefault(s => s.Is_filled);
 				if (waferSlot != null) {
-					waferSlot.Wafer.Present = false;
 					Robot.carries_Wafer = true;
 					Robot.position = "LP2";
 				}
 			} else {
-				var emptySlot = LP2.Slots.FirstOrDefault(s => !s.Wafer.Present);
+				var emptySlot = LP2.Slots.FirstOrDefault(s => !s.Is_filled);
 				if (emptySlot != null) {
-					emptySlot.Wafer.Present = true;
 					Robot.carries_Wafer = false;
 					Robot.position = "LP1";
 				}
